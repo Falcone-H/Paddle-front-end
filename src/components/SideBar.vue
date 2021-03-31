@@ -14,9 +14,7 @@
         <span>数据管理</span>
       </template>
       <el-menu-item index="1-1">用户管理</el-menu-item>
-      <el-menu-item index="1-2">商品管理</el-menu-item>
-      <el-menu-item index="1-3">订单管理</el-menu-item>
-      <el-menu-item index="1-4">管理员管理</el-menu-item>
+      <el-menu-item index="1-2">管理员管理</el-menu-item>
     </el-submenu>
     <el-submenu index="2">
       <template #title>
@@ -42,7 +40,7 @@ export default {
   data() {
     return {
       isCollapse: false,
-      openeds: ['0', '1', '1-1', '1-2', '1-3', '1-4', '2', '2-1', '2-2', '3', '4']
+      openeds: ['0', '1', '1-1', '1-2', '2', '2-1', '2-2', '3', '4']
     };
   },
   computed: {
