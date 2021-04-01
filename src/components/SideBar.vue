@@ -1,10 +1,10 @@
 
 <template>
   <div class="aside">
-    <el-menu default-active="1" class="el-menu-vertical-demo" @open="handleOpen" @close="handleClose"
+    <el-menu default-active="this.$route.path" class="el-menu-vertical-demo" @open="handleOpen" @close="handleClose"
       :collapse="isCollapse" background-color="#fff" text-color="#000" active-text-color="#409eff"
-      :default-openeds="openeds">
-      <el-menu-item index="0">
+      :default-openeds="openeds" router="true">
+      <el-menu-item index="/home">
         <i class="el-icon-s-home"></i>
         <template #title>首页</template>
       </el-menu-item>
@@ -13,21 +13,21 @@
           <i class="el-icon-s-grid"></i>
           <span>数据管理</span>
         </template>
-        <el-menu-item index="1-1">用户管理</el-menu-item>
-        <el-menu-item index="1-2">管理员管理</el-menu-item>
+        <el-menu-item index="/home/manageUser">用户管理</el-menu-item>
+        <el-menu-item index="/home/manageAdmin">管理员管理</el-menu-item>
       </el-submenu>
       <el-submenu index="2">
         <template #title>
           <i class="el-icon-circle-plus-outline"></i>
           <span>添加数据</span>
         </template>
-        <el-menu-item index="2-1">添加用户</el-menu-item>
+        <el-menu-item index="/home/addUser">添加条目</el-menu-item>
       </el-submenu>
-      <el-menu-item index="3">
+      <el-menu-item index="/home/interface">
         <i class="el-icon-document"></i>
         <template #title>接口管理</template>
       </el-menu-item>
-      <el-menu-item index="4">
+      <el-menu-item index="/home/edit">
         <i class="el-icon-setting"></i>
         <template #title>编辑</template>
       </el-menu-item>
@@ -41,7 +41,7 @@ export default {
   data() {
     return {
       isCollapse: false,
-      openeds: ['0', '1', '1-1', '1-2', '2', '2-1', '2-2', '3', '4']
+      openeds: ['0', '1', '2']
     };
   },
   computed: {

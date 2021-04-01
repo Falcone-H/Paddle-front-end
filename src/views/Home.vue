@@ -13,14 +13,7 @@
         <!-- 主要内容 -->
         <el-container>
           <el-main>
-            <el-tabs v-model="activeName" type="card">
-              <el-tab-pane label="上传图片" name="first">
-                <upload-card></upload-card>
-              </el-tab-pane>
-              <el-tab-pane label="查看结果" name="second">
-                <result-card></result-card>
-              </el-tab-pane>
-            </el-tabs>
+            <router-view></router-view>
           </el-main>
         </el-container>
       </el-container>
@@ -31,22 +24,21 @@
 <script>
 import TopBar from '../components/TopBar'
 import SideBar from '../components/SideBar'
-import UploadCard from '../components/UploadCard'
-import ResultCard from '../components/ResultCard'
 
 
 export default {
   name: 'Home',
   data() {
     return {
-      activeName: 'first'
+
     }
   },
   components: {
     TopBar,
     SideBar,
-    UploadCard,
-    ResultCard
+  },
+  methods: {
+
   }
 }
 </script>

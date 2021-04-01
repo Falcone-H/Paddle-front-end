@@ -4,6 +4,10 @@
       <el-col :span="2"></el-col>
       <el-col :span="20">
         <el-empty :image-size="200" description="您暂未上传图片"></el-empty>
+        <div class="download_box">
+          <el-button type="primary" plain>下载图片</el-button>
+          <el-button type="info" plain>重新检测</el-button>
+        </div>
       </el-col>
       <el-col :span="2"></el-col>
     </el-row>
@@ -17,5 +21,8 @@ export default {
 <style>
 .result_card .el-empty {
   border: 3px dashed #d9d9d9;
+}
+.download_box {
+  margin-top: 10px;
 }
 </style>

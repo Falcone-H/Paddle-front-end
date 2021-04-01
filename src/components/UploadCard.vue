@@ -3,8 +3,9 @@
     <el-row>
       <el-col :span="2"></el-col>
       <el-col :span="20">
-        <el-upload class="upload_box" drag action="#" multiple :file-list="fileList" list-type="picture"
-          :on-preview="handlePreview" :on-remove="handleRemove">
+        <el-upload class="upload_box" drag action="https://jsonplaceholder.typicode.com/posts/" multiple
+          :auto-upload="false" :file-list="fileList" list-type="picture" :on-preview="handlePreview"
+          :on-remove="handleRemove">
           <i class="el-icon-upload"></i>
           <div class="el-upload__text">将文件拖到此处，或<em>点击上传</em></div>
           <template #tip>
@@ -13,6 +14,9 @@
             </div>
           </template>
         </el-upload>
+        <div class="submit-btn">
+          <el-button type="primary" plain>提交</el-button>
+        </div>
       </el-col>
       <el-col :span="2"></el-col>
     </el-row>
@@ -48,5 +52,8 @@ export default {
 }
 .upload_box .el-upload-dragger .el-icon-upload {
   margin: 110px 0 16px;
+}
+.submit-btn {
+  margin-top: 10px;
 }
 </style>

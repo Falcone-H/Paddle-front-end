@@ -6,13 +6,17 @@ import Home from '../views/Home.vue'
 
 const routes = [{
     path: '/',
-    name: 'Home',
-    component: Home
+    redirect: '/home'
   },
   {
-    path: '/about',
-    name: 'About',
-    component: () => import('../views/About.vue')
+    path: '/home',
+    name: 'Home',
+    component: Home,
+    children: [{
+      path: '/home',
+      name: 'TabCard',
+      component: () => import('../components/TabCard.vue')
+    }]
   }
 ]
 
