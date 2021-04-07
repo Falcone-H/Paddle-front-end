@@ -1,5 +1,5 @@
 <template>
-  <el-tabs v-model="activeName" type="card" @click="handleClick">
+  <el-tabs v-model="activeName" type="card">
     <el-tab-pane label="上传图片" name="upload">
       <upload-card></upload-card>
     </el-tab-pane>

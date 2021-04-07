@@ -3,7 +3,7 @@
   <div class="aside">
     <el-menu default-active="this.$route.path" class="el-menu-vertical-demo" @open="handleOpen" @close="handleClose"
       :collapse="isCollapse" background-color="#fff" text-color="#000" active-text-color="#409eff"
-      :default-openeds="openeds" router="true">
+      :default-openeds="openeds" router>
       <el-menu-item index="/home">
         <i class="el-icon-s-home"></i>
         <template #title>首页</template>
