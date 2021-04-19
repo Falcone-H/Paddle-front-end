@@ -1,6 +1,6 @@
 <template>
   <el-tabs v-model="activeName" type="card">
-    <el-tab-pane label="上传图片" name="upload">
+    <el-tab-pane label="上传视频" name="upload">
       <upload-card></upload-card>
     </el-tab-pane>
     <el-tab-pane label="查看结果" name="result">

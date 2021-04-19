@@ -3,9 +3,9 @@
     <el-row>
       <el-col :span="2"></el-col>
       <el-col :span="20">
-        <el-empty :image-size="200" description="您暂未上传图片"></el-empty>
+        <el-empty :image-size="200" description="您暂未上传视频"></el-empty>
         <div class="download_box">
-          <el-button type="primary" plain>下载图片</el-button>
+          <el-button type="primary" plain>下载视频</el-button>
           <el-button type="info" plain>重新检测</el-button>
         </div>
       </el-col>

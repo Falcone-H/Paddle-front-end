@@ -1,5 +1,5 @@
 import axios from 'axios';
-axios.defaults.baseURL = '/api'; // 配置代理服务器的代理路径
+// axios.defaults.baseURL = '/api'; // 配置代理服务器的代理路径
 
 export default {
     get(url, data, responseType) {
@@ -34,7 +34,7 @@ export default {
         return new Promise((resolve, reject) => {
             axios({
                 method: 'post',
-                rul,
+                url,
                 data,
                 headers: {
                     Accept: 'application/json',
