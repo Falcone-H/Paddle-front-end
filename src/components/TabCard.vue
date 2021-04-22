@@ -1,9 +1,9 @@
 <template>
-  <el-tabs v-model="activeName" type="card">
-    <el-tab-pane label="上传视频" name="upload">
+  <el-tabs :activeName="activeName" type="card">
+    <el-tab-pane label="上传视频" name="upload" @click="handleUpload">
       <upload-card></upload-card>
     </el-tab-pane>
-    <el-tab-pane label="查看结果" name="result">
+    <el-tab-pane label="查看结果" name="result" @click="handleResult">
       <result-card></result-card>
     </el-tab-pane>
   </el-tabs>
@@ -15,12 +15,26 @@ export default {
   name: '',
   data() {
     return {
-      activeName: 'upload'
+
+    }
+  },
+  computed: {
+    activeName() {
+      console.log(this.$store.state.activeName);
+      return this.$store.state.activeName;
     }
   },
   components: {
     UploadCard,
     ResultCard
+  },
+  methods: {
+    handleUpload() {
+      this.$store.commit("uploadTap");
+    },
+    handleResult() {
+      this.$store.commit("resultTap");
+    }
   }
 }
 </script>
