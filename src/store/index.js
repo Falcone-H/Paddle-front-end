@@ -5,17 +5,19 @@ import {
 export default createStore({
   state: {
     activeName: "upload",
-    isUpload: true,
+    toPlay: true,
+    isUpload: false,
+    videoSrc: ""
   },
   mutations: {
-    uploadTap(state) {
-      state.activeName = "upload";
-    },
-    resultTap(state) {
-      state.activeName = "result";
-    },
     uploadVideo(state) {
       state.isUpload = true;
+    },
+    changeVideoSrc(state, src) {
+      state.videoSrc = src;
+    },
+    changeActiveName(state, name) {
+      state.activeName = name;
     }
   },
   actions: {},

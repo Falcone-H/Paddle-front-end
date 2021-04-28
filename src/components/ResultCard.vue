@@ -3,18 +3,21 @@
     <el-row>
       <el-col :span="2"></el-col>
       <el-col :span="20">
-        <div class="empty_box" v-if="isUpload === false">
+        <div class="empty_box" v-show="isUpload === false">
           <el-empty :image-size="200" description="您暂未上传视频"></el-empty>
         </div>
-        <div class="video_box" v-if="isUpload === true">
-          <video id="videoPlayer" ref="videoPlayer" class="video-js vjs-default-skin vjs-big-play-centered vjs-16-9"
-            controls width='100%'>
+        <div class="video_box" v-show="isUpload === true">
+          <video id="videoPlayer" class="video-js vjs-default-skin vjs-big-play-centered vjs-16-9" controls
+            width='100%'>
             <source id="sourceBox" :src="videoSrc">
             <p class="vjs-no-js">不支持播放</p>
           </video>
         </div>
+        <div class="refresh_box">
+          <el-button type="success" plain @click="handleRefresh">刷新视频</el-button>
+        </div>
         <div class="download_box">
-          <el-button type="primary" plain>下载视频</el-button>
+          <el-button type="primary" plain @click="handleDownload">下载视频</el-button>
           <el-button type="info" plain>重新检测</el-button>
         </div>
       </el-col>
@@ -25,21 +28,25 @@
 <script>
 import videojs from 'video.js'
 import 'video.js/dist/video-js.css'
+let player = {};
 export default {
   name: '',
   data() {
     return {
-      videoSrc: "http://localhost/api/upload/beach.mp4"
+      videoSrc: ""
     }
   },
   computed: {
     isUpload() {
       return this.$store.state.isUpload;
+    },
+    toPlay() {
+      return this.$store.state.toPlay;
     }
   },
-  mounted() {
-    if (this.isUpload) {
-      var player = videojs('videoPlayer', {
+  methods: {
+    initVideo() {
+      player = videojs('videoPlayer', {
         bigPlayButton: true,
         textTrackDisplay: true,
         errorDisplay: false,
@@ -60,6 +67,19 @@ export default {
           }
         }, 1000);
       })
+      console.log("video is ready...");
+    },
+    handleDownload() {
+      console.log(this.$store.state.activeName);
+    },
+    handleRefresh() {
+      player.src("http://localhost/api/upload/2.mp4");
+      player.play();
+    }
+  },
+  mounted() {
+    if (this.toPlay) {
+      this.initVideo();
     }
   },
   beforeUnmount() {
@@ -74,6 +94,9 @@ export default {
   border: 3px dashed #d9d9d9;
 }
 .download_box {
+  margin-top: 10px;
+}
+.refresh_box {
   margin-top: 10px;
 }
 </style>

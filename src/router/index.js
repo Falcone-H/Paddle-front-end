@@ -17,6 +17,10 @@ const routes = [{
       name: 'TabCard',
       component: () => import('../components/TabCard.vue')
     }]
+  }, {
+    path: '/video',
+    name: "Video",
+    component: () => import('../views/video.vue')
   }
 ]
 

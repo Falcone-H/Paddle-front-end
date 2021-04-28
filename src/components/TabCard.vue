@@ -1,9 +1,9 @@
 <template>
-  <el-tabs :activeName="activeName" type="card">
-    <el-tab-pane label="上传视频" name="upload" @click="handleUpload">
+  <el-tabs :activeName="activeName" type="card" @tab-click="handleClick">
+    <el-tab-pane label="上传视频" name="upload">
       <upload-card></upload-card>
     </el-tab-pane>
-    <el-tab-pane label="查看结果" name="result" @click="handleResult">
+    <el-tab-pane label="查看结果" name="result">
       <result-card></result-card>
     </el-tab-pane>
   </el-tabs>
@@ -22,19 +22,17 @@ export default {
     activeName() {
       console.log(this.$store.state.activeName);
       return this.$store.state.activeName;
-    }
+    },
   },
   components: {
     UploadCard,
     ResultCard
   },
   methods: {
-    handleUpload() {
-      this.$store.commit("uploadTap");
+    handleClick(tab) {
+      var name = tab.props.name;
+      this.$store.commit("changeActiveName", name);
     },
-    handleResult() {
-      this.$store.commit("resultTap");
-    }
   }
 }
 </script>

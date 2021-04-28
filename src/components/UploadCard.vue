@@ -102,9 +102,10 @@ export default {
           confirmButtonText: '确定',
         }).then(action => {
           console.log(action);
-          that.$store.commit("resultTap");
+          that.$store.commit("uploadVideo");
+          that.$store.commit("changeActiveName", "result");
+          that.$store.commit("changeVideoSrc", "http://localhost/api/upload/2.mp4");
         });
-
       }).catch(err => {
         console.log("上传失败", err);
         that.isShowProgress = false;
